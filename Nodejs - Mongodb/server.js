@@ -64,6 +64,15 @@ app.get('/load-all-blog', (req, res) => {
     .catch((err) => { console.log(err);});
 });
 
+app.get('/load-sgl-blog/61dea0ea6bd02927430b2fae', (req, res) => {
+   
+    Blog.findById('61dea0ea6bd02927430b2fae')
+    .then((result) => {
+        res.render('singleBlog', {blog1: result, title: 'Single Blogs'});
+    })
+    .catch((err) => { console.log(err);});
+});
+
 // load data below to Home page
 app.get('/', (req, res) => {
     const blogs = [
